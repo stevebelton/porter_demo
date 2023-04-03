@@ -139,12 +139,7 @@
 								{
 									"name": "CNAB_BUNDLE_TAG",
 									"value": "getporter/porter-hello:v0.1.1"
-								},
-								{
-									"name": "CNAB_PARAM_affinity",
-									"value": "[parameters('affinity')]"
-								}
-		
+								}		
 							]
 						}
 					}
