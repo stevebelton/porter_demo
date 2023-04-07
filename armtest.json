@@ -28,13 +28,13 @@
 		"cnab_azure_client_id": "[parameters('cnab_azure_client_id')]",
 		"cnab_azure_client_secret": "[parameters('cnab_azure_client_secret')]",
 		"cnab_azure_location": "[resourceGroup().Location]",
-		"cnab_azure_state_fileshare": "porter-fixme",
+		"cnab_azure_state_fileshare": "porterfixme",
 		"cnab_azure_state_storage_account_name": "[concat('cnabstate',uniqueString(resourceGroup().id))]",
 		"cnab_azure_subscription_id": "[subscription().subscriptionId]",
 		"cnab_azure_tenant_id": "[subscription().tenantId]",
 		"cnab_installation_name": "porter-fixme",
-		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porter-fixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]",
-		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porter-fixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]"
+		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]",
+		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]"
 	},
 	"resources": [
 		{
