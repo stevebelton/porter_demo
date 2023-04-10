@@ -33,8 +33,8 @@
 		"cnab_azure_subscription_id": "[subscription().subscriptionId]",
 		"cnab_azure_tenant_id": "[subscription().tenantId]",
 		"cnab_installation_name": "porter-fixme",
-		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]",
-		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme-installer:v0.1.0'))]"
+		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme:v0.1.0'))]",
+		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porterfixme', 'porterreq.azurecr.io/porter-fixme:v0.1.0'))]"
 	},
 	"resources": [
 		{
