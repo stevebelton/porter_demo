@@ -138,7 +138,7 @@
 								},
 								{
 									"name": "CNAB_BUNDLE_TAG",
-									"value": "porterreq.azurecr.io/porter-fixme-installer:v0.1.0"
+									"value": "porterreq.azurecr.io/porter-fixme:v0.1.0"
 								}		
 							]
 						}
