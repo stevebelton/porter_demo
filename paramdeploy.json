@@ -35,46 +35,6 @@
 			"metadata": {
 				"description": "AAD Client Secret for Azure account authentication - used to authenticate to Azure using Service Principal for ACI creation."
 			}
-		},
-		"password": {
-			"type": "securestring",
-			"defaultValue": "",
-			"metadata": {
-				"description": "A secret password"
-			}
-		},
-		"person": {
-			"type": "securestring",
-			"defaultValue": "mike",
-			"metadata": {
-				"description": "The name of the person to say hello to"
-			},
-			"minLength": 1,
-			"maxLength": 20
-		},
-		"place_of_birth": {
-			"type": "string",
-			"allowedValues": [
-				"UK",
-				"USA"
-			],
-			"metadata": {
-				"description": "The person's place of birth"
-			}
-		},
-		"retirement_age": {
-			"type": "int",
-			"metadata": {
-				"description": "The retirement age of the person"
-			},
-			"minValue": 56,
-			"maxValue": 74
-		},
-		"secret_file": {
-			"type": "securestring",
-			"metadata": {
-				"description": "A secret file (Enter base64 encoded representation of file)"
-			}
 		}
 	},
 	"variables": {
@@ -212,34 +172,6 @@
 								{
 									"name": "CNAB_PARAM_age",
 									"value": "[parameters('age')]"
-								},
-								{
-									"name": "CNAB_PARAM_azure_location",
-									"value": "[variables('cnab_azure_location')]"
-								},
-								{
-									"name": "CNAB_PARAM_person",
-									"value": "[parameters('person')]"
-								},
-								{
-									"name": "CNAB_PARAM_place_of_birth",
-									"value": "[parameters('place_of_birth')]"
-								},
-								{
-									"name": "CNAB_PARAM_retirement_age",
-									"value": "[parameters('retirement_age')]"
-								},
-								{
-									"name": "CNAB_CRED_azure_client_secret",
-									"secureValue": "[variables('cnab_azure_client_secret')]"
-								},
-								{
-									"name": "CNAB_CRED_password",
-									"secureValue": "[parameters('password')]"
-								},
-								{
-									"name": "CNAB_CRED_FILE_secret_file",
-									"secureValue": "[parameters('secret_file')]"
 								}
 							]
 						}
