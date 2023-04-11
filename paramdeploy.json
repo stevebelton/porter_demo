@@ -83,13 +83,13 @@
 		"cnab_azure_client_id": "[parameters('cnab_azure_client_id')]",
 		"cnab_azure_client_secret": "[parameters('cnab_azure_client_secret')]",
 		"cnab_azure_location": "[resourceGroup().Location]",
-		"cnab_azure_state_fileshare": "hello-world",
+		"cnab_azure_state_fileshare": "test3",
 		"cnab_azure_state_storage_account_name": "[concat('cnabstate',uniqueString(resourceGroup().id))]",
 		"cnab_azure_subscription_id": "[subscription().subscriptionId]",
 		"cnab_azure_tenant_id": "[subscription().tenantId]",
-		"cnab_installation_name": "hello-world",
-		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'hello-world', 'cnabquickstarts.azurecr.io/porter/hello-world/bundle:1.0.0'))]",
-		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'hello-world', 'cnabquickstarts.azurecr.io/porter/hello-world/bundle:1.0.0'))]"
+		"cnab_installation_name": "test3",
+		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3'))]",
+		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3'))]"
 	},
 	"resources": [
 		{
@@ -199,11 +199,11 @@
 								},
 								{
 									"name": "CNAB_BUNDLE_NAME",
-									"value": "hello-world"
+									"value": "test3"
 								},
 								{
 									"name": "CNAB_BUNDLE_TAG",
-									"value": "cnabquickstarts.azurecr.io/porter/hello-world/bundle:1.0.0"
+									"value": "porterreq.azurecr.io/porter-test3:v0.1.0"
 								},
 								{
 									"name": "AZURE_STORAGE_CONNECTION_STRING",
