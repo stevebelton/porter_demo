@@ -146,9 +146,13 @@
 									"name": "CNAB_BUNDLE_TAG",
 									"value": "porterreq.azurecr.io/porter-test4:v0.1.0"
 								},
-																{
+								{
 									"name": "CNAB_PARAM_resource_group",
 									"value": "[parameters('resource_group')]"
+								},
+								{
+									"name": "CNAB_PARAM_azure_location",
+									"value": "[variables('cnab_azure_location')]"
 								},
 								{
 									"name": "CNAB_CRED_azure_client_id",
