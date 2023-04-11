@@ -141,7 +141,7 @@
 									"value": "porterreq.azurecr.io/porter-fixme:v0.1.0"
 								},
 								{
-									"name": "RESOURCE_GROUP_NAME",
+									"name": "CNAB_RESOURCE_GROUP_NAME",
 									"value": "[resourceGroup().Name]"
 								}
 							]
