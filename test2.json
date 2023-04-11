@@ -21,7 +21,7 @@
 				"description": "AAD Client Secret for Azure account authentication - used to authenticate to Azure using Service Principal for ACI creation."
 			}
 		},
-    "age": {
+	    	"age": {
 			"type": "int",
 			"defaultValue": 29,
 			"metadata": {
@@ -149,9 +149,25 @@
 									"name": "CNAB_BUNDLE_TAG",
 									"value": "porterreq.azurecr.io/porter-test3:v0.1.0"
 								},
-                {
+               							{
 									"name": "CNAB_PARAM_age",
 									"value": "[parameters('age')]"
+								},
+								{
+									"name": "CNAB_CRED_azure_client_id",
+									"secureValue": "[variables('cnab_azure_client_id')]"
+								},
+								{
+									"name": "CNAB_CRED_azure_client_secret",
+									"secureValue": "[variables('cnab_azure_client_secret')]"
+								},
+								{
+									"name": "CNAB_CRED_azure_subscription_id",
+									"secureValue": "[variables('cnab_azure_subscription_id')]"
+								},
+								{
+									"name": "CNAB_CRED_azure_tenant_id",
+									"secureValue": "[variables('cnab_azure_tenant_id')]"
 								}
 							]
 						}
