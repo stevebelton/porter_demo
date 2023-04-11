@@ -155,6 +155,10 @@
 									"value": "[variables('cnab_azure_location')]"
 								},
 								{
+									"name": "CNAB_PARAM_location",
+									"value": "[variables('cnab_azure_location')]"
+								},
+								{
 									"name": "CNAB_CRED_azure_client_id",
 									"secureValue": "[variables('cnab_azure_client_id')]"
 								},
