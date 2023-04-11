@@ -88,8 +88,8 @@
 		"cnab_azure_subscription_id": "[subscription().subscriptionId]",
 		"cnab_azure_tenant_id": "[subscription().tenantId]",
 		"cnab_installation_name": "test3",
-		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3'))]",
-		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3'))]"
+		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3:v0.1.0'))]",
+		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'test3', 'porterreq.azurecr.io/porter-test3:v0.1.0'))]"
 	},
 	"resources": [
 		{
