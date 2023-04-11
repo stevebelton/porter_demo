@@ -27,12 +27,12 @@
 				"description": "The name of the resource group to create"
 			}
 		},
-    "arm_template_url": {
-      "type": "string",
-      "metadata": {
-        "description": "The URL of the ARM template to deploy via the bundle"
-      }
-    }
+    		"arm_template_url": {
+      			"type": "string",
+      			"metadata": {
+        			"description": "The URL of the ARM template to deploy via the bundle"
+      			}
+    		}
 	},
 	"variables": {
 		"aci_location": "[resourceGroup().Location]",
@@ -160,7 +160,7 @@
 									"name": "CNAB_PARAM_azure_location",
 									"value": "[variables('cnab_azure_location')]"
 								},
-                {
+								{
 									"name": "CNAB_PARAM_arm_template_url",
 									"value": "[parameters('arm_template_url')]"
 								},
