@@ -6,6 +6,8 @@
 Deploys a bundle in Azure that takes an arm template to deploy using AZ/ARM Mixins
 Created to test parameter & credential pass-through from an ARM template->ACI Deployment->Bundle->ARM Template Deployment process.
 
+See the [test5 folder](https://github.com/stevebelton/porter/tree/main/test5) for bundle files, etc.)
+
 Makes use of the following Mixins
 - ```AZ```
 - ```ARM```
