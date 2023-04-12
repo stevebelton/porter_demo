@@ -12,13 +12,13 @@ dockerfile: Dockerfile.tmpl
 credentials:
 - name: azure_client_id
   env: AZURE_CLIENT_ID
-  description: AAD Client ID for Azure account authentication - used for AKS Cluster SPN details and for authentication to azure to get KubeConfig
+  description: AAD Client ID for Azure account authentication
 - name: azure_tenant_id
   env: AZURE_TENANT_ID
-  description: Azure AAD Tenant Id for Azure account authentication - used to authenticate to Azure to get KubeConfig 
+  description: Azure AAD Tenant Id for Azure account authentication
 - name: azure_client_secret
   env: AZURE_CLIENT_SECRET
-  description: AAD Client Secret for Azure account authentication - used for AKS Cluster SPN details and for authentication to azure to get KubeConfig
+  description: AAD Client Secret for Azure account authentication
 - name: azure_subscription_id
   env: AZURE_SUBSCRIPTION_ID
   description: Azure Subscription Id used to set the subscription where the account has access to multiple subscriptions
