@@ -105,7 +105,7 @@
         "description": ""
       }
     },
-    "fixme_accessPolicyId": {
+    "fixme_accessPolicyUserId": {
       "type": "string",
       "metadata": {
         "description": ""
@@ -357,8 +357,8 @@
                   "value": "[parameters('fixme_adminPassword')]"
                 },
                 {
-                  "name": "CNAB_PARAM_FIXME_accessPolicyId",
-                  "value": "[parameters('fixme_accessPolicyId')]"
+                  "name": "CNAB_PARAM_FIXME_accessPolicyUserrId",
+                  "value": "[parameters('fixme_accessPolicyUserId')]"
                 },
                 {
                   "name": "CNAB_PARAM_FIXME_targetTenantId",
