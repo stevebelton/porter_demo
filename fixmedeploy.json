@@ -25,7 +25,8 @@
 			"type": "string",
 			"metadata": {
 				"description": "The name of the resource group to create"
-			},
+			}
+		},		
     "fixme_name" {
       "type": "string",
       "metadata": {
