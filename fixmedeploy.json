@@ -285,10 +285,6 @@
                   "value": "[variables('cnab_azure_location')]"
                 },
                 {
-                  "name": "CNAB_PARAM_vnetName",
-                  "value": "[variables('cnab_installation_name')]"
-                },
-                {
                   "name": "CNAB_CRED_azure_client_id",
                   "secureValue": "[variables('cnab_azure_client_id')]"
                 },
