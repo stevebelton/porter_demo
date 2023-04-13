@@ -353,7 +353,7 @@
                   "value": "[parameters('fixme_adminPassword')]"
                 },
                 {
-                  "name": "CNAB_PARAM_FIXME_accessPolicyUserrId",
+                  "name": "CNAB_PARAM_FIXME_accessPolicyUserId",
                   "value": "[parameters('fixme_accessPolicyUserId')]"
                 },
                 {
