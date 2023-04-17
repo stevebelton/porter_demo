@@ -46,7 +46,7 @@
       }
     },
     "fixme_version": {
-      "type": "string",
+      "type": "int",
       "metadata": {
         "description": ""
       }
