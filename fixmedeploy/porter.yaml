@@ -1,0 +1,171 @@
+name: porter-fixme
+version: 0.1.0
+description: "Deploy FixMe"
+registry: porterreq.azurecr.io
+
+dockerfile: Dockerfile.tmpl
+
+credentials:
+- name: azure_client_id
+  env: AZURE_CLIENT_ID
+  description: AAD Client ID for Azure account authentication
+- name: azure_tenant_id
+  env: AZURE_TENANT_ID
+  description: Azure AAD Tenant Id for Azure account authentication
+- name: azure_client_secret
+  env: AZURE_CLIENT_SECRET
+  description: AAD Client Secret for Azure account authentication
+- name: azure_subscription_id
+  env: AZURE_SUBSCRIPTION_ID
+  description: Azure Subscription Id used to set the subscription where the account has access to multiple subscriptions
+
+parameters:
+- name: resource_group
+  type: string
+  description: The name of the resource group to create
+- name: location
+  type: string
+  description: The Azure location to create the resources in (ARM)
+- name: FIXME_name
+  type: string
+  description:
+- name: FIXME_location
+  type: string
+  description:
+- name: FIXME_prefix
+  type: string
+  description:
+- name: FIXME_version
+  type: string
+  description:
+- name: FIXME_sku
+  type: string
+  description:
+- name: FIXME_publisherName
+  type: string
+  description:
+- name: FIXME_publisherEmail
+  type: string
+  description:
+- name: FIXME_administratorLoginPassword
+  type: string
+  description:
+- name: FIXME_synapseAdminLogin
+  type: string
+  description:
+- name: FIXME_synapseAdminTenant
+  type: string
+  description:
+- name: FIXME_synapseAdminSID
+  type: string
+  description:
+- name: FIXME_adminUserName
+  type: string
+  description:
+- name: FIXME_adminPassword
+  type: string
+  description:
+- name: FIXME_accessPolicyUserId
+  type: string
+  description:
+- name: FIXME_targetTenantId
+  type: string
+  description:
+- name: FIXME_helpDeskUserName
+  type: string
+  description:
+- name: FIXME_helpDeskUserPswd
+  type: string
+  description:
+- name: FIXME_targetEnvironment
+  type: string
+  description:
+- name: FIXME_sqlConnectionId
+  type: string
+  description:
+- name: FIXME_oneDriveConnectionId
+  type: string
+  description:
+- name: FIXME_teamsConnectionId
+  type: string
+  description:
+- name: azure_location
+  type: string
+  description: The Azure location to create the resources in (AZ)
+  applyTo:
+    - "install"
+    
+mixins:
+  - az
+  - arm
+  - exec
+
+install:
+  - az:
+      description: "Azure CLI login"
+      arguments: 
+        - "login" 
+      flags:
+        service-principal:
+        username: "{{ bundle.credentials.azure_client_id}}"
+        password: "{{ bundle.credentials.azure_client_secret}}"
+        tenant: "{{ bundle.credentials.azure_tenant_id}}"
+
+  - az:
+      description: "Azure set subscription Id"
+      arguments: 
+        - "account" 
+        - "set" 
+      flags:
+        subscription: "{{ bundle.credentials.azure_subscription_id}}"
+
+  - az:
+      description: "Create resource group if not exists"
+      arguments: 
+        - "group" 
+        - "create" 
+      flags:
+        name: "{{ bundle.parameters.resource_group }}"
+        location: "{{ bundle.parameters.azure_location }}"
+
+  - arm:
+      description: ARM template to deploy a FixMe instance
+      name: fixmedeploy
+      resourceGroup: "{{ bundle.parameters.resource_group }}"
+      template: fixme.json
+      parameters:
+        name: "{{ bundle.parameters.FIXME_name }}"
+        location: "{{ bundle.parameters.FIXME_location }}"
+        prefix: "{{ bundle.parameters.FIXME_prefix }}"
+        version: "{{ bundle.parameters.FIXME_version }}"
+        sku: "{{ bundle.parameters.FIXME_sku }}"
+        publisherName: "{{ bundle.parameters.FIXME_publisherName }}"
+        publisherEmail: "{{ bundle.parameters.FIXME_publisherEmail }}"
+        administratorLoginPassword: "{{ bundle.parameters.FIXME_administratorLoginPassword }}"
+        synapseAdminLogin: "{{ bundle.parameters.FIXME_synapseAdminLogin }}"
+        synapseAdminTenant: "{{ bundle.parameters.FIXME_synapseAdminTenant }}"
+        synapseAdminSID: "{{ bundle.parameters.FIXME_synapseAdminSID }}"
+        adminUserName: "{{ bundle.parameters.FIXME_adminUserName }}"
+        adminPassword: "{{ bundle.parameters.FIXME_adminPassword }}"
+        accessPolicyUserId: "{{ bundle.parameters.FIXME_accessPolicyUserId }}"
+        targetTenantId: "{{ bundle.parameters.FIXME_targetTenantId }}"
+        helpDeskUserName: "{{ bundle.parameters.FIXME_helpDeskUserName }}"
+        helpDeskUserPswd: "{{ bundle.parameters.FIXME_helpDeskUserPswd }}"
+        targetEnvironment: "{{ bundle.parameters.FIXME_targetEnvironment }}"
+        sqlConnectionId: "{{ bundle.parameters.FIXME_sqlConnectionId }}"
+        oneDriveConnectionId: "{{ bundle.parameters.FIXME_oneDriveConnectionId }}"
+        teamsConnectionId: "{{ bundle.parameters.FIXME_teamsConnectionId }}"
+
+upgrade:
+  - exec:
+      description: "World 2.0"
+      command: ./helpers.sh
+      arguments:
+        - upgrade
+
+uninstall:
+  - exec:
+      description: "Uninstall Hello World"
+      command: ./helpers.sh
+      arguments:
+        - uninstall
