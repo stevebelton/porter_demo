@@ -45,13 +45,6 @@
         "description": ""
       }
     },
-    "fixme_version": {
-      "type": "int",
-      "metadata": {
-        "description": ""
-      },
-      "defaultvalue": 1      
-    },
     "fixme_sku": {
       "type": "string",
       "metadata": {
@@ -312,10 +305,6 @@
                 {
                   "name": "CNAB_PARAM_FIXME_prefix",
                   "value": "[parameters('fixme_prefix')]"
-                },
-                {
-                  "name": "CNAB_PARAM_FIXME_version",
-                  "value": "[parameters('fixme_version')]"
                 },
                 {
                   "name": "CNAB_PARAM_FIXME_sku",
