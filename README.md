@@ -1,6 +1,6 @@
 ### Hello Porter deployment
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstevebelton%2Fporter%2Fmain%2Ftest.json" target="_blank"><img src="https://raw.githubusercontent.com/endjin/CNAB.Quickstarts/master/images/Deploy-from-Azure.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstevebelton%2Fporter_demo%2Fmain%2Ftest.json" target="_blank"><img src="https://raw.githubusercontent.com/endjin/CNAB.Quickstarts/master/images/Deploy-from-Azure.png"/></a>
 
 ### Azure CNAB/Porter/ACI Test Deployment (test5.json)
 Deploys a bundle in Azure that contains an arm template to deploy using AZ/ARM Mixins
@@ -15,7 +15,7 @@ Makes use of the following Mixins
 
 Uses the [Azure CNAB Driver](https://github.com/deislabs/cnab-azure-driver) (**cnabquickstarts.azurecr.io/cnabarmdriver:0.25.0**) and the [Azure CNAB/ARM Converter](https://github.com/endjin/CNAB.ARM-Converter) to deploy via Azure and ACI.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstevebelton%2Fporter%2Fmain%2Ftest5.json" target="_blank"><img src="https://raw.githubusercontent.com/endjin/CNAB.Quickstarts/master/images/Deploy-from-Azure.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstevebelton%2Fporter_demo%2Fmain%2Ftest5.json" target="_blank"><img src="https://raw.githubusercontent.com/endjin/CNAB.Quickstarts/master/images/Deploy-from-Azure.png"/></a>
 
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstevebelton%2Fporter_demo%2Fmain%2Ffixmedeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/endjin/CNAB.Quickstarts/master/images/Deploy-from-Azure.png"/></a>
