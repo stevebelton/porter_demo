@@ -1,0 +1,112 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "prefix": {
+            "type": "string"
+        },
+        "sku": {
+            "type": "string"
+        },
+        "publisherName": {
+            "type": "string"
+        },
+        "publisherEmail": {
+            "type": "string"
+        },
+        "administratorLoginPassword": {
+            "type": "string"
+        },
+        "synapseAdminLogin": {
+            "type": "string"
+        },
+        "synapseAdminTenant": {
+            "type": "string"
+        },
+        "synapseAdminSID": {
+            "type": "string"
+        },
+        "adminUserName": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "string"
+        },
+        "accessPolicyUserId": {
+            "type": "string"
+        },
+        "targetTenantId": {
+            "type": "string"
+        },
+        "helpDeskUserName": {
+            "type": "string"
+        },
+        "helpDeskUserPswd": {
+            "type": "string"
+        },
+        "targetEnvironment": {
+            "type": "string"
+        },
+        "sqlConnectionId": {
+            "type": "string"
+        },
+        "oneDriveConnectionId": {
+        "type": "string"
+        },
+        "teamsConnectionId": {
+        "type": "string"
+        }
+},
+"resources": [
+    {
+        "apiVersion": "2021-08-01-preview",
+        "location": "[parameters('location')]",
+        "name": "[parameters('name')]",
+        "type": "Microsoft.WhiteBoxCadlProvider/WhiteBoxResources",
+        "Properties": {
+            "version": 1,
+            "sku": "[parameters('sku')]",
+            "apimProfile": {
+                "publisherName": "[parameters('publisherName')]",
+                "publisherEmail": "[parameters('publisherEmail')]",
+                "id": "apid"
+            },
+            "sqlProfile": {
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "id": "sid",
+                "miId": "smid"
+            },
+            "synapseProfile": {
+                "synapseAdminLogin": "[parameters('synapseAdminLogin')]",
+                "synapseAdminTenant": "[parameters('synapseAdminTenant')]",
+                "synapseAdminSID": "[parameters('synapseAdminSID')]",
+                "sparkPoolId": "spid"
+            },
+            "m365Profile": {
+                "adminUserName": "[parameters('adminUserName')]",
+                "adminPassword": "[parameters('adminPassword')]",
+                "accessPolicyUserId": "[parameters('accessPolicyUserId')]",
+                "targetTenantId": "[parameters('targetTenantId')]",
+                "helpDeskUserName": "[parameters('helpDeskUserName')]",
+                "helpDeskUserPswd": "[parameters('helpDeskUserPswd')]",
+                "targetEnvironment": "[parameters('targetEnvironment')]",
+                "sqlConnectionId": "[parameters('sqlConnectionId')]",
+                "oneDriveConnectionId": "[parameters('oneDriveConnectionId')]",
+                "teamsConnectionId": "[parameters('teamsConnectionId')]"
+            }
+        }
+    }
+    ],
+    "outputs": {
+    "CNAB Package Action Logs Command": {
+			"type": "string",
+			"value": "FixMe Deployment complete"
+		}
+  }
+}
