@@ -34,13 +34,13 @@
 		"cnab_azure_client_id": "[parameters('cnab_azure_client_id')]",
 		"cnab_azure_client_secret": "[parameters('cnab_azure_client_secret')]",
 		"cnab_azure_location": "[resourceGroup().Location]",
-		"cnab_azure_state_fileshare": "portertest5",
+		"cnab_azure_state_fileshare": "porterdemo2",
 		"cnab_azure_state_storage_account_name": "[concat('cnabstate',uniqueString(resourceGroup().id))]",
 		"cnab_azure_subscription_id": "[subscription().subscriptionId]",
 		"cnab_azure_tenant_id": "[subscription().tenantId]",
-		"cnab_installation_name": "porter-test5",
-		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porter-test5', 'porterreq.azurecr.io/porter-test5:v0.1.22'))]",
-		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porter-test5', 'porterreq.azurecr.io/porter-test5:v0.1.22'))]"
+		"cnab_installation_name": "porter-demo2",
+		"containerGroupName": "[concat('cg-',uniqueString(resourceGroup().id, 'porter-demo2', 'porterreq.azurecr.io/porter-demo2:v0.1.0'))]",
+		"containerName": "[concat('cn-',uniqueString(resourceGroup().id, 'porter-demo2', 'porterreq.azurecr.io/porter-demo2:v0.1.0'))]"
 	},
 	"resources": [
 		{
@@ -140,11 +140,11 @@
 								},
 								{
 									"name": "CNAB_BUNDLE_NAME",
-									"value": "porter-test5"
+									"value": "porter-demo2"
 								},
 								{
 									"name": "CNAB_BUNDLE_TAG",
-									"value": "porterreq.azurecr.io/porter-test5:v0.1.22"
+									"value": "porterreq.azurecr.io/porter-demo2:v0.1.0"
 								},
 								{
 									"name": "CNAB_PARAM_resource_group",
