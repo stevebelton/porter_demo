@@ -1,0 +1,92 @@
+name: porter-demo3
+version: 0.1.0
+description: "Deploy Demo3 - single VNET with one parameter for testing"
+registry: porterreq.azurecr.io
+
+dockerfile: Dockerfile.tmpl
+
+credentials:
+- name: azure_client_id
+  env: AZURE_CLIENT_ID
+  description: AAD Client ID for Azure account authentication
+- name: azure_tenant_id
+  env: AZURE_TENANT_ID
+  description: Azure AAD Tenant Id for Azure account authentication
+- name: azure_client_secret
+  env: AZURE_CLIENT_SECRET
+  description: AAD Client Secret for Azure account authentication
+- name: azure_subscription_id
+  env: AZURE_SUBSCRIPTION_ID
+  description: Azure Subscription Id used to set the subscription where the account has access to multiple subscriptions
+
+parameters:
+- name: resource_group
+  type: string
+  description: The name of the resource group to create
+- name: vnetName
+  type: string
+  description: VNET name
+- name: azure_location
+  type: string
+  description: The Azure location to create the resources in (AZ)
+  applyTo:
+    - "install"
+    
+mixins:
+  - az
+  - exec
+
+install:
+  - az:
+      description: "Azure CLI login"
+      arguments: 
+        - "login" 
+      flags:
+        service-principal:
+        username: "{{ bundle.credentials.azure_client_id}}"
+        password: "{{ bundle.credentials.azure_client_secret}}"
+        tenant: "{{ bundle.credentials.azure_tenant_id}}"
+
+  - az:
+      description: "Azure set subscription Id"
+      arguments: 
+        - "account" 
+        - "set" 
+      flags:
+        subscription: "{{ bundle.credentials.azure_subscription_id}}"
+
+  - az:
+      description: "Create resource group if not exists"
+      arguments: 
+        - "group" 
+        - "create" 
+      flags:
+        name: "{{ bundle.parameters.resource_group }}"
+        location: "{{ bundle.parameters.azure_location }}"
+
+  - az:
+      description: "Create VNET"
+      arguments:
+        - "network"
+        - "vnet"
+        - "create"
+      flags:
+        name: "{{ bundle.parameters.vnetName }}"
+        resource-group: "{{ bundle.parameters.resource_group }}"
+        address-prefix: 10.0.0.0/16
+        subnet-name: "default"
+        subnet-prefixes: 10.0.0.0/24
+
+upgrade:
+  - exec:
+      description: "Upgrade - NOT USED"
+      command: ./helpers.sh
+      arguments:
+        - upgrade
+
+uninstall:
+  - exec:
+      description: "Uninstall - NOT USED"
+      command: ./helpers.sh
+      arguments:
+        - uninstall
