@@ -153,11 +153,7 @@
 								{
 									"name": "CNAB_PARAM_azure_location",
 									"value": "[variables('cnab_azure_location')]"
-								},
-								{
-									"name": "CNAB_PARAM_location",
-									"value": "[variables('cnab_azure_location')]"
-								},
+								},								
 								{
 									"name": "CNAB_PARAM_vnetName",
 									"value": "[variables('cnab_installation_name')]"
