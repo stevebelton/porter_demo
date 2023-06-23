@@ -28,6 +28,7 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v2
         with:
+          method: service-principal
           cluster-type: arc
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
