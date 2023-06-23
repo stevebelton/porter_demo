@@ -22,10 +22,10 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1.4.3
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT }}
           client-secret: ${{ secrets.AZURE_SECRET }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION }}
           
       - name: Get K8S Context
         uses: azure/aks-set-context@v3
