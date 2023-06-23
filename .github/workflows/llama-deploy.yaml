@@ -16,16 +16,15 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      # Checks out the repository this file is in
       - uses: actions/checkout@master
 
-      - name: Azure login
+      - name: Login to Azure
         id: login
         uses: azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-      - name: Set AKS context
+      - name: Set K8S context to KinD/ARC
         id: set-context
         uses: azure/k8s-set-context@v3
         with:
@@ -33,9 +32,8 @@ jobs:
           cluster-type: arc
           cluster-name: ${{ env.CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
-
-      # Deploys application based on given manifest file
-      - name: Deploys application
+          
+      - name: Deploy Sample CNAB Bundle
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
