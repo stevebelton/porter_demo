@@ -38,5 +38,6 @@ jobs:
         uses: Azure/k8s-deploy@v3.0
         with:
           action: deploy
+          namespace: k8sdev
           manifests: |
             manifests/llama.yaml
