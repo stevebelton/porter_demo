@@ -25,7 +25,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
       - name: Get K8S Context
-        uses: azure/aks-set-context@v3
+        uses: azure/aks-set-context@v2
         with:
           method: service-principal
           cluster-type: arc
