@@ -20,17 +20,19 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Azure login
-        uses: azure/login@v1
+        id: login
+        uses: azure/login@v1.4.3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      - name: Get K8S Context
+      
+      - name: Set AKS context
+        id: set-context
         uses: azure/aks-set-context@v2
         with:
           method: service-principal
           cluster-type: arc
-          resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
 
       # Deploys application based on given manifest file
       - name: Deploys application
