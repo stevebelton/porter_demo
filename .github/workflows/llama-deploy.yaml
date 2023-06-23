@@ -28,8 +28,8 @@ jobs:
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          resource-group: '${{ env.resource_group }}' 
-          cluster-name: '${{ env.cluster_name }}'
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
 
       # Deploys application based on given manifest file
       - name: Deploys application
