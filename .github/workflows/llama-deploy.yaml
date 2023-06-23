@@ -1,0 +1,43 @@
+name: Deploy LLAMA Bundle Demo
+
+on:
+  workflow_dispatch:
+
+env:
+  RESOURCE_GROUP: "testRG"
+  CLUSTER_NAME: "myTestCluster"
+
+jobs:
+  build:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out the repository this file is in
+      - uses: actions/checkout@master
+
+      # Logs in with your Azure credentials
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      # Retrieves your Azure Kubernetes Service cluster's kubeconfig file
+      - name: Get K8s context
+        uses: azure/k8s-set-context@v2
+        with:
+          method: service-principal
+          cluster-type: arc
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+
+      # Deploys application based on given manifest file
+      - name: Deploys application
+        uses: Azure/k8s-deploy@v3.0
+        with:
+          action: deploy
+          manifests: |
+            manifests/llama.yaml
