@@ -27,7 +27,7 @@ jobs:
       
       - name: Set AKS context
         id: set-context
-        uses: azure/aks-set-context@v3
+        uses: azure/k8s-set-context@v3
         with:
           method: service-principal
           cluster-type: arc
