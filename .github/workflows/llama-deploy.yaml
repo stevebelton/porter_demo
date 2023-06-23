@@ -27,6 +27,8 @@ jobs:
       - name: Get K8S Context
         uses: azure/aks-set-context@v3
         with:
+          method: service-principal
+          cluster-type: arc
           resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
 
